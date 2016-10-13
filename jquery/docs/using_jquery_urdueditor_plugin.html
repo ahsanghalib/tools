@@ -1,0 +1,297 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="css/screen.css" rel="stylesheet" type="text/css">
+<title>Using jQuery Urdu Editor Plugin</title>
+<link type="text/css" rel="stylesheet" href="css/SyntaxHighlighter.css"></link>
+<script language="javascript" src="js/shCore.js"></script>
+<script language="javascript" src="js/shBrushCSharp.js"></script>
+<script language="javascript" src="js/shBrushXml.js"></script>
+<script language="javascript" src="js/shBrushJScript.js"></script>
+<script language="javascript" src="js/shBrushCss.js"></script>
+</head>
+
+<body>
+
+<div class="header" style="background-color: #C0C0C0">
+	<h1>Using JQuery's Urdu Editor Plugin </h1>
+</div>
+<p><a href="#introduction">Introduction</a></p>
+<p><a href="#references">Including the necessary script references</a></p>
+<p><a href="#converting">Converting edit areas into Urdu edit areas</a></p>
+<p><a href="#controls">Controls for switching language mode</a></p>
+<p><a href="#oskeyboard">Using the on-screen keyboard </a></p>
+<p><a href="#virkeyboard">Using the virtual keyboard </a></p>
+<p><a href="#customization">Customizing Urdu Editor Plugin's Defaults</a></p>
+<p><a href="#resizable">Resizable textarea</a></p>
+<div class="content">
+	<h2><a name="introduction" id="introduction"></a>Introduction</h2>
+	<p>JQuery's Urdu Editor plugin provides the capability of converting any edit area on a web page into an Urdu edit area. It makes it possible to type Urdu inside the edit areas without the need of installing Urdu language support or the Urdu keyboard in the operating system. This work is derived from Urdu WebPad which is a javascript component that also provides the capability of typing Urdu in a text area on the web page without the need of installing Urdu language support or the Urdu keyboard in the operating system. Creating an Urdu Editor plugin for jQuery is a significant development since it makes it possible to use all the powerfull features of the jQuery framework alongwith the Urdu editing capabilities.<br>
+	</p>
+	<h2><a name="references"></a>Including the Necessary Script References</h2>
+	<p>First of all you need to download the latest version of the jQuery libary which you can get here. You also need to downlaod the zip-file containing the Urdu Editor plugin for jQuery. Then you can include the references to the jQuery library and the Urdu Editor plugin in the following way:<br>
+<pre name="code" class="html:nocontrols">
+&lt;html&gt;
+&lt;head&gt;
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;UrduEditor.css&quot; /&gt;
+    &lt;script src=&quot;jquery.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;  
+    &lt;script src=&quot;jquery.UrduEditor.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;  
+&lt;/head&gt;
+&lt;body&gt;
+&lt;!-- Text areas will added later --&gt;
+&lt;/body&gt;                                                                 
+&lt;/html&gt;
+</pre>
+	</p>
+
+ <h2><a name="converting"></a>Converting edit areas into Urdu edit areas</h2>
+<p>Selecting a text area for conversion into an Urdu editor is done by the means of jQuery selectors. The fastest way to select a html-element with jQuery is by using the id-attribute of the element. Most of the jQuery operations can be performed inside a ready event that is registered in the following way:<br>
+</p>
+<pre name="code" class="html:nocontrols">
+$(document).ready(function() {
+   // do stuff when DOM is ready
+ });
+</pre>
+	<p>The ready event then signals the completion of the html-content. Therefore any html-manipulation can be done inside this event handler. Consider for example the following html which contains three edit areas:<br>
+</p>
+<pre name="code" class="html:nocontrols">
+&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;
+&quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;
+&lt;title&gt;Example 1&lt;/title&gt;
+&lt;style&gt;
+.urdu20 {font-family:&quot;Urdu Naskh Asiatype&quot;, Tahoma; font-size:20; direction:rtl ; unicode-bidi: embed; }
+.table {
+	direction:rtl;
+	unicode-bidi: embed;
+	border: 1px solid #999999;
+}
+.td {
+	direction:rtl;
+	unicode-bidi: embed;
+}
+.style1 {font-family: &quot;Urdu Naskh Asiatype&quot;}
+.style2 {font-size: x-small}
+&lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+&lt;h1 align=&quot;center&quot; class=&quot;style1&quot;&gt;جے کویری کے اردو ایڈیٹر پلگ ان کا استعمال&lt;/h1&gt;
+&lt;table width=&quot;63%&quot;  border=&quot;1&quot; align=&quot;center&quot; class=&quot;table&quot;&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;table&quot;&gt;&lt;span class=&quot;urdu20&quot;&gt;نام :&lt;/span&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;table&quot;&gt;&lt;input name=&quot;username&quot; type=&quot;text&quot; size=&quot;20&quot;&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;table&quot;&gt;&lt;span class=&quot;urdu20&quot;&gt;موضوع :&lt;/span&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;table&quot;&gt;&lt;input name=&quot;subject&quot; type=&quot;text&quot; size=&quot;20&quot;&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;table&quot;&gt;&lt;span class=&quot;urdu20&quot;&gt;پیغام :&lt;/span&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;table&quot;&gt;&lt;textarea name=&quot;message&quot; cols=&quot;20&quot; rows=&quot;5&quot;&gt;&lt;/textarea&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p align=&quot;center&quot; class=&quot;style2&quot;&gt;Copyright ©  &lt;a href=&quot;http://www.urduweb.org&quot; target=_blank&gt;UrduWeb&lt;/a&gt;&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;
+&quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;
+&lt;title&gt;Example 1&lt;/title&gt;
+&lt;style&gt;
+.urdu20 {font-family:&quot;Urdu Naskh Asiatype&quot;, Tahoma; font-size:20; direction:rtl ; unicode-bidi: embed; }
+.table {
+	direction:rtl;
+	unicode-bidi: embed;
+	border: 1px solid #999999;
+}
+.td {
+	direction:rtl;
+	unicode-bidi: embed;
+}
+.style1 {font-family: &quot;Urdu Naskh Asiatype&quot;}
+.style2 {font-size: x-small}
+&lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+&lt;h1 align=&quot;center&quot; class=&quot;style1&quot;&gt;جے کویری کے اردو ایڈیٹر پلگ ان کا استعمال&lt;/h1&gt;
+&lt;table width=&quot;63%&quot;  border=&quot;1&quot; align=&quot;center&quot; class=&quot;table&quot;&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;table&quot;&gt;&lt;span class=&quot;urdu20&quot;&gt;نام :&lt;/span&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;table&quot;&gt;&lt;input name=&quot;username&quot; type=&quot;text&quot; size=&quot;20&quot;&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;table&quot;&gt;&lt;span class=&quot;urdu20&quot;&gt;موضوع :&lt;/span&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;table&quot;&gt;&lt;input name=&quot;subject&quot; type=&quot;text&quot; size=&quot;20&quot;&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;table&quot;&gt;&lt;span class=&quot;urdu20&quot;&gt;پیغام :&lt;/span&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;table&quot;&gt;&lt;textarea name=&quot;message&quot; cols=&quot;20&quot; rows=&quot;5&quot;&gt;&lt;/textarea&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p align=&quot;center&quot; class=&quot;style2&quot;&gt;Copyright ©  &lt;a href=&quot;http://www.urduweb.org&quot; target=_blank&gt;UrduWeb&lt;/a&gt;&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+	<p align="left">The resulting page will look as in shown in the following:
+	<p align="center">        
+<p align="center"><img src="images/sample.gif" width="359" height="251">    
+<p align="left">The above html contain edit areas each with the id attribute defined. These edit areas can be converted into Urdu edit areas by putting the following code inside the head tag:<br>
+<pre name="code" class="js:nocontrols">
+$(document).ready(function() {  
+	$("#username").UrduEditor("14px"); 
+	$("#subject").UrduEditor("14px"); 
+	$("#message").UrduEditor("18px");               
+});
+</pre>
+<p align="left">Alternatively, following code can be used to achieve the same effect: <br>
+<pre name="code" class="js:nocontrols">
+$(document).ready(function() {  
+	$('input').UrduEditor("14px"); 
+	$('textarea').UrduEditor("18px"); 
+});
+</pre>	
+<p align="left">Note how jQuery selectors are used in different ways to manipulate the edit areas. The following figure shows the sample web page after converting the edit areas into Urdu editor:
+<p align="center"><img src="images/example1.gif" width="361" height="327">
+<p align="center">
+<h2 align="left"><a name="controls"></a>Controls for switching language mode</h2>
+<p align="left">The Urdu editor plugin for jQuery provides the CTRL+SPACE keyboard shortcut for switching the language mode from Urdu to English and vice versa. It also provides the writeToggleControl for inserting radio button controls for switching the language mode for a particular edit area. The following code snippet illustrates the use of the writeToggleControl function: <br>
+<pre name="code" class="html:nocontrols">
+&lt;tr&gt;
+    &lt;td class=&quot;table&quot;&gt;&lt;input id=&quot;username&quot; name=&quot;username&quot; type=&quot;text&quot; size=&quot;30&quot;&gt;
+		&lt;br /&gt;&lt;script type=&quot;text/javascript&quot;&gt;
+			$(this).UrduEditor.writeToggleControl('username');
+		&lt;/script&gt;
+	&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;table&quot;&gt;&lt;span class=&quot;urdu20&quot;&gt;موضوع :&lt;/span&gt;	
+	&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;table&quot;&gt;&lt;input id=&quot;subject&quot; name=&quot;subject&quot; type=&quot;text&quot; size=&quot;30&quot;&gt;
+		&lt;br /&gt;&lt;script type=&quot;text/javascript&quot;&gt;
+			$(this).UrduEditor.writeToggleControl('subject');
+		&lt;/script&gt;
+	&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;table&quot;&gt;&lt;span class=&quot;urdu20&quot;&gt;پیغام :&lt;/span&gt;	
+	&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class=&quot;table&quot;&gt;&lt;textarea id=&quot;message&quot; name=&quot;message&quot; cols=&quot;30&quot; rows=&quot;5&quot;&gt;&lt;/textarea&gt;
+		&lt;br /&gt;&lt;script type=&quot;text/javascript&quot;&gt;
+		$(this).UrduEditor.writeToggleControl('message');
+		&lt;/script&gt;
+	&lt;/td&gt;
+  &lt;/tr&gt;</pre>
+<h2 align="left"><a name="oskeyboard"></a>Using the On-Screen Keyboard</h2>
+<p align="left">The Urdu editor plugin for jQuery provides the writeKeyboard for putting an on-screen keypad to assist in typing Urdu. The following code snippet illustrates the use of the writeKeyboard function:
+<p align="left">
+<pre name="code" class="js:nocontrols">
+&lt;script type=&quot;text/javascript&quot;&gt;
+	$(this).UrduEditor.writeKeyboard();
+&lt;/script&gt;
+</pre>
+<p align="left">The following figure shows the same web page as above with the addition of the on-screen keyboard as well as the controls for switching the language mode:
+<p align="center"><img src="images/example3.gif" width="338" height="415"> 
+<h2 align="left"><a name="virkeyboard"></a>Using the Virtual Keyboard</h2>
+<p align="left">The Urdu editor plugin for jQuery also includes a tailored version of the virtual keyboard found <a href="http://www.greywyvern.com/code/js/keyboard.html" target="_blank">here</a>. In order to use the virtual keyboard, its javascript and stylesheet references must be included in the web page as shown in the following:
+<p align="left">
+<pre name="code" class="html:nocontrols">
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;keyboard.css&quot; /&gt;
+&lt;script src=&quot;keyboard.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+</pre>
+<p align="left"> After that the virtual keyboard can be attached to any edit area by adding &quot;keyboardInput&quot; to its class attribute. This can be achieved by using the addClass function of jQuery as shown in the following code:
+<p align="left"> <br>  
+<pre name="code" class="html:nocontrols">
+&lt;script language=&quot;JavaScript&quot; type=&quot;text/javascript&quot;&gt;
+	 $(document).ready(function() {  
+		$('#username').UrduEditor(&quot;14px&quot;); $(&quot;#username&quot;).addClass(&quot;keyboardInput&quot;);
+		$('#subject').UrduEditor(&quot;14px&quot;);$(&quot;#subject&quot;).addClass(&quot;keyboardInput&quot;);
+		$('#message').UrduEditor(&quot;18px&quot;); $(&quot;#message&quot;).addClass(&quot;keyboardInput&quot;);
+      });
+&lt;/script&gt;
+</pre>
+<p align="left"> <br>
+<h2><a name="customization"></a>Customizing Urdu Editor Plugin's Defaults
+  </h3>
+
+</h2>
+<p>The Urdu Editor plugin for JQuery also lets you customize certain attributes of the Urdu text areas. By default any Urdu edit area uses the Urdu Naskh Asiatype font, the background color in Urdu mode is #CCCCFF and the background color in English mode is #99FF99. Following is an example of customizing the editor defaults:<br>
+<pre name="code" class="html:nocontrols">
+&lt;script type=&quot;text/javascript&quot;&gt; 
+   $.fn.UrduEditor.defaults.EditorFont = 'Alvi Nastaleeq';
+   $.fn.UrduEditor.defaults.UrduColor = &quot;#CCCC66&quot;;
+   $.fn.UrduEditor.defaults.EnglishColor = &quot;#FFCCCC&quot;;
+&lt;/script&gt;
+</pre>
+
+	<p>The following screenshot shows the Urdu editor after the above customizations:</p>
+	<p align="center"><img src="images/customization.gif" width="245" height="166"> </p>
+	<h2 align="left"><a name="resizable"></a>Resizable textarea</h2>
+	<p align="left">The <a href="http://plugins.jquery.com/project/TextAreaResizer">resizable textarea plugin of jQuery</a> can also be used in conjunction with the Urdu editor plugin. In order to make a textarea resizable include the script reference of this plugin as shown in the following:</p>
+	<p align="left">&nbsp;</p>
+	<pre name="code" class="html:nocontrols">
+	&lt;script type=&quot;text/javascript&quot; src=&quot;jquery.textarearesizer.js&quot;&gt;&lt;/script&gt;
+	</pre>
+	<p align="left">Further, the following style definitions should be included in the stylesheet of the web page:</p>
+	<p align="left">&nbsp;</p>
+	<pre name="code" class="css:nocontrols">
+	div.grippie {
+		background:#EEEEEE url(grippie.png) no-repeat scroll center 2px;
+		border-color:#DDDDDD;
+		border-style:solid;
+		border-width:0pt 1px 1px;
+		cursor:s-resize;
+		height:9px;
+		overflow:hidden;
+	}
+	.resizable-textarea textarea {
+		display:block;
+		margin-bottom:0pt;
+		width:95%;
+		height: 20%;
+	}
+	</pre>
+	<p align="left">Now any textarea can be made resizable by using the TextAreaResizer() function as shown in the following:</p>
+	<p align="left">&nbsp;</p>
+<pre name="code" class="js:nocontrols">
+$(document).ready(function() { 
+	$("#message").TextAreaResizer();
+});
+</pre>
+	<p align="left">The following screenshot shows the textarea with the grip which can be used to resize it:</p>
+	<p align="center"><img src="images/resizing.gif" width="329" height="166"> </p>
+	<div class="footer">
+	<div class="copyright">
+		Copyright © <a target="_blank" href="http://www.urduweb.org">UrduWeb</a></div> </div>
+
+</body>
+<script language="javascript">
+dp.SyntaxHighlighter.ClipboardSwf = 'flash/clipboard.swf';
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+</html>

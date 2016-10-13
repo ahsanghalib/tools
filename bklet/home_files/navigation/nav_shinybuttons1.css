@@ -1,0 +1,48 @@
+#nav_main {
+    background: url("gfx/shiny_buttons/bg_hnav1.gif") repeat-x scroll left top #000000;
+    float: left;
+    line-height: 0;
+    width: 100%;
+}
+#nav_main ul {
+    border-left: 1px solid #000000;
+    display: inline;
+    float: left;
+    margin: 0 0 0 20px;
+    padding: 0;
+}
+#nav_main ul li {
+    border-right: 1px solid #000000;
+    display: inline;
+    float: left;
+    font-size: 1em;
+    line-height: 1em;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+#nav_main ul li a {
+    background: none repeat scroll 0 0 transparent;
+    color: #CCCCCC;
+    display: block;
+    font-size: 1em;
+    font-weight: 400;
+    margin: 0;
+    padding: 10px 1em;
+    text-decoration: none;
+    width: auto;
+}
+#nav_main ul li a:focus, #nav_main ul li a:hover, #nav_main ul li a:active {
+    background: url("gfx/shiny_buttons/bg_hnav1_hover.gif") repeat-x scroll right top transparent;
+    color: #FF8888;
+    text-decoration: none;
+}
+#nav_main ul li#current {
+    background: url("gfx/shiny_buttons/bg_hnav1_hover.gif") repeat-x scroll right top transparent;
+}
+#nav_main ul li#current a, #nav_main ul li#current a:focus, #nav_main ul li#current a:hover, #nav_main ul li#current a:active {
+    background: none repeat scroll 0 0 transparent;
+    color: #FFFFFF;
+    font-weight: 700;
+    text-decoration: none;
+}

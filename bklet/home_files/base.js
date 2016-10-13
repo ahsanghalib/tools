@@ -1,0 +1,10 @@
+$(document).ready(function(){
+	$(".jquery_tabs").yamltabs({
+		fx:"fadeIn",
+		fxspeed:"normal"
+	});
+	$(".jquery_tabs2").yamltabs({
+		fx:"show",
+		fxspeed:"slow"
+	});
+})	

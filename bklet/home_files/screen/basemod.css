@@ -1,0 +1,190 @@
+body {
+    background: url("../../img/bg_body.gif") repeat-x scroll center top #404347;
+    overflow-y: scroll;
+    padding: 0;
+    text-align: center;
+}
+#page {
+    background: none repeat scroll 0 0 #FFFFFF;
+}
+#page_margins {
+    margin: auto;
+    max-width: 90em;
+    min-width: 740px;
+    position: relative;
+    text-align: left;
+    width: 95%;
+}
+#header, #nav, #main, #footer {
+    clear: both;
+}
+#topnav {
+    background: url("../../img/bg_head.gif") repeat-x scroll center bottom #000000;
+    border-bottom: 1px solid #000000;
+    color: #666666;
+    font-size: 81.25%;
+    overflow: hidden;
+    padding: 2px 20px;
+    position: static;
+    text-align: left;
+}
+#topnav .langMenu {
+    float: right;
+}
+#topnav .langMenu a {
+    float: left;
+    margin-right: 0.5em;
+}
+#topnav .langMenu img {
+    border: 1px solid #444444;
+    float: left;
+    margin-right: 0.3em;
+    margin-top: 0.1em;
+}
+#topnav .langMenu img.arrow {
+    border: 0 none;
+    margin-right: 0;
+    margin-top: 2px;
+}
+#topnav .langMenu a span.text {
+    color: #666666;
+    float: left;
+    margin-right: 0.5em;
+}
+#topnav .langMenu a:hover span.text {
+    color: #FFFFFF;
+    float: left;
+    margin-right: 0.5em;
+}
+#topnav .langMenu span.text {
+    color: #FFFFFF;
+    float: left;
+    margin-right: 0.5em;
+}
+#topnav .langMenu span.text2 {
+    float: left;
+    margin-right: 0.5em;
+}
+#topnav .langMenu span.textOff {
+    color: #666666;
+    float: left;
+    margin-right: 0.5em;
+}
+#header {
+    background: url("../../img/bg_logo.gif") repeat-x scroll center top #000000;
+    color: #FFFFFF;
+    height: 59px;
+    overflow: hidden;
+}
+#header img {
+    font-size: 208%;
+    margin: 10px 0 0 20px;
+}
+#nav_main2 .tx-macinasearchbox-pi1 {
+    float: right;
+    margin: 0.2em 2em 2px 0;
+}
+#nav_main2 .tx-macinasearchbox-pi1 input.suchBox {
+    padding: 0.1em;
+    width: 12em;
+}
+#shadow {
+    background: url("../../img/bg_main_bottom.gif") repeat-x scroll center bottom transparent;
+    border-bottom: 2px solid #FFFFFF;
+    height: 22px;
+}
+#footer {
+    background: url("../navigation/gfx/shiny_buttons/bg_hnav1.gif") repeat-x scroll center top #000000;
+    color: #888888;
+    line-height: 2em;
+    padding: 20px 20px 10px;
+    position: relative;
+}
+#backlink {
+    bottom: 10px;
+    color: #666666;
+    position: absolute;
+    right: 20px;
+}
+#backlink img {
+    position: relative;
+    top: 5px;
+}
+#main {
+    background: url("../../img/bg_main_top.gif") repeat-x scroll center top #FFFFFF;
+    border-top: 2px solid #FFFFFF;
+    position: relative;
+}
+.first {
+    background: url("../../img/bg_firstblock.gif") repeat-x scroll center bottom transparent;
+    border-bottom: 2px solid #FFFFFF;
+
+    overflow: hidden;
+    padding: 0 20px 12px;
+    width: auto;
+}
+.second {
+    background: url("../../img/bg_body.gif") repeat-x scroll 0 -250px #404347;
+    color: #F4F4F4;
+    
+    overflow: hidden;
+    padding: 0 20px;
+}
+* html > body .first {
+    float: left;
+    overflow: visible;
+}
+* html > body .second {
+    float: left;
+    overflow: visible;
+}
+#col1 {
+    width: 22.5%;
+}
+#col1_content {
+    background: inherit;
+    color: #444444;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+#col2 {
+    width: 280px;
+}
+#col2_content {
+    margin-left: 1em;
+    margin-right: 1em;
+}
+#col3 {
+    border-left: 0 dotted #DDDDDD;
+    border-right: 0 dotted #DDDDDD;
+    margin-left: 22.5%;
+    margin-right: 280px;
+}
+#col3_content {
+    margin-left: 1em;
+    margin-right: 1em;
+}
+.skip:focus, a.skip:active {
+    background: none repeat scroll 0 0 #FFFFFF;
+    color: #333333;
+    display: block;
+    position: absolute;
+}
+#kikrss_table {
+    font-family: inherit;
+    font-size: 100%;
+    margin: 0 !important;
+}
+.csc-mailform-captcha {
+    background: none repeat scroll 0 0 #F8F8F8;
+    border: 1px solid #DDDDDD;
+    margin: 0 10px 1em 0;
+    padding: 0 5px 0 10px;
+}
+.csc-mailform-captcha img {
+    border: 2px solid #CCCCCC;
+    margin-left: 0;
+}
+.csc-mailform-captcha p {
+    margin-top: 1em;
+}
