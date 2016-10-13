@@ -1,0 +1,100 @@
+#submenu {
+    border-bottom: 2px solid #DDDDDD;
+    border-top: 2px solid #DDDDDD;
+    list-style-type: none;
+    margin: 2.4em 0 1.5em;
+    overflow: hidden;
+    width: 100%;
+}
+#submenu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+#submenu li {
+    float: left;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    width: 100%;
+}
+#submenu a, #submenu strong {
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #EEEEEE;
+    color: #444444;
+    display: block;
+    padding: 3px 0 3px 10%;
+    text-decoration: none;
+    width: 90%;
+}
+#submenu li#title {
+    background-color: #FFFFFF;
+    border-bottom: 4px solid #888888;
+    color: #444444;
+    font-weight: 700;
+    padding: 3px 0 3px 10%;
+    width: 90%;
+}
+#submenu li span {
+    background: none repeat scroll 0 0 #9BA1A9;
+    border-bottom: 1px solid #DDDDDD;
+    color: #FFFFFF;
+    display: block;
+    font-weight: 700;
+    padding: 3px 0 3px 10%;
+    width: 90%;
+}
+#submenu li#active, #submenu li strong {
+    background-color: #4E5155;
+    border-bottom: 1px solid #EEEEEE;
+    color: #FFFFFF;
+    font-weight: 700;
+    padding: 3px 0 3px 10%;
+    width: 90%;
+}
+#submenu li a {
+    background-color: #FFFFFF;
+    color: #444444;
+    padding-left: 10%;
+    width: 90%;
+}
+#submenu li a:focus, #submenu li a:hover, #submenu li a:active {
+    background-color: #AA1124;
+    color: #FFFFFF;
+}
+#submenu li ul li a, #submenu li ul li#active, #submenu li ul li strong, #submenu li ul li span {
+    padding-left: 20%;
+    width: 80%;
+}
+#submenu li ul li a {
+    background-color: #F4F7F4;
+    color: #666666;
+}
+#submenu li ul li a:focus, #submenu li ul li a:hover, #submenu li ul li a:active {
+    background-color: #AA1124;
+    color: #FFFFFF;
+}
+#submenu li ul li ul li a, #submenu li ul li ul li#active, #submenu li ul li ul li strong, #submenu li ul li ul li span {
+    padding-left: 30%;
+    width: 70%;
+}
+#submenu li ul li ul li a {
+    background-color: #EDF0ED;
+    color: #333333;
+}
+#submenu li ul li ul li a:focus, #submenu li ul li ul li a:hover, #submenu li ul li ul li a:active {
+    background-color: #AA1124;
+    color: #FFFFFF;
+}
+#submenu li ul li ul li ul li a, #submenu li ul li ul li ul li#active, #submenu li ul li ul li ul li strong, #submenu li ul li ul li ul li span {
+    padding-left: 40%;
+    width: 60%;
+}
+#submenu li ul li ul li ul li a {
+    background-color: #FFFFFF;
+    color: #AAAAAA;
+}
+#submenu li ul li ul li ul li a:focus, #submenu li ul li ul li ul li a:hover, #submenu li ul li ul li ul li a:active {
+    background-color: #AA1124;
+    color: #FFFFFF;
+}

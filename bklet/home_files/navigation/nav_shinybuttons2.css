@@ -1,0 +1,54 @@
+#nav_main2 {
+    background: none repeat scroll 0 0 #4E5155;
+    border-top: 1px solid #666666;
+    float: left;
+    font-size: 90%;
+    height: 2.2em;
+    line-height: 0;
+    overflow: hidden;
+    width: 100%;
+}
+#nav_main2 ul {
+    border-bottom: 1px solid red;
+    border-left: 0 solid #AAAAAA;
+    border-right: 0 solid #FFFFFF;
+    display: inline;
+    float: left;
+    margin: 0 0 0 21px;
+    padding: 0;
+}
+#nav_main2 ul li {
+    border-left: 0 solid #FFFFFF;
+    border-right: 0 solid #AAAAAA;
+    display: inline;
+    float: left;
+    font-size: 1em;
+    line-height: 1em;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+#nav_main2 ul li a {
+    background: none repeat scroll 0 0 transparent;
+    color: #AAAAAA;
+    display: block;
+    font-size: 1em;
+    font-weight: 400;
+    margin: 0;
+    padding: 0.6em 0.8em;
+    text-decoration: none;
+    width: auto;
+}
+#nav_main2 ul li a:focus, #nav_main2 ul li a:hover, #nav_main2 ul li a:active {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+#nav_main2 ul li#current2 {
+    background: url("gfx/shiny_buttons/bg_hnav2_hover.gif") no-repeat scroll center bottom #4E5155;
+}
+#nav_main2 ul li#current2 a, #nav_main2 ul li#current2 a:focus, #nav_main2 ul li#current2 a:hover, #nav_main2 ul li#current2 a:active {
+    background: none repeat scroll 0 0 transparent;
+    color: #FFFFFF;
+    font-weight: 700;
+    text-decoration: none;
+}

@@ -1,0 +1,1 @@
+This is the first release of the Urdu editor plugin for jQuery. Find its detailed howto in the docs/using_jquery_urdueditor_plugin.html file. The example folder contains examples of the use of the Urdu editor plugin for jQuery.
