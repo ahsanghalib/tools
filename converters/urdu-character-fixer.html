@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ur">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="description" content="Urdu text converter / fixer">
+  <meta name="language" CONTENT="UR">
+  <meta name="author" content="Asad Razzaki">
+  <meta name="version" content="0.1.2" />
+  <title>حرفی قدر مبدل برائے اردو - جاواسکرپٹ</title>
+  <style type="text/css">
+    body { margin-left: 10%; margin-right: 10%; direction: rtl;
+      font-family: tahoma, sans-serif; font-size:18px; }
+    #badUrdu, #res {font-family: "Courier New", monospace;}
+  </style>
+  <script type='text/javascript'>
+  //<![CDATA[
+  function fixUrdu(strIn){
+    return strIn.replace(/ﺁ/g, "آ").replace(/ﺂ/g, "آ").replace(/ﺅ/g, "ؤ").replace(/ﺆ/g, "ؤ").replace(/ﺉ/g, "ئ").replace(/ﺊ/g, "ئ").replace(/ﺋ/g, "ئ").replace(/ﺌ/g, "ئ").replace(/ﺍ/g, "ا").replace(/ﺎ/g, "ا").replace(/ﺏ/g, "ب").replace(/ﺐ/g, "ب").replace(/ﺑ/g, "ب").replace(/ﺒ/g, "ب").replace(/ﺓ/g, "ة").replace(/ﺔ/g, "ة").replace(/ﺕ/g, "ت").replace(/ﺖ/g, "ت").replace(/ﺗ/g, "ت").replace(/ﺘ/g, "ت").replace(/ﺙ/g, "ث").replace(/ﺚ/g, "ث").replace(/ﺛ/g, "ث").replace(/ﺜ/g, "ث").replace(/ﺝ/g, "ج").replace(/ﺞ/g, "ج").replace(/ﺟ/g, "ج").replace(/ﺠ/g, "ج").replace(/ﺡ/g, "ح").replace(/ﺢ/g, "ح").replace(/ﺣ/g, "ح").replace(/ﺤ/g, "ح").replace(/ﺥ/g, "خ").replace(/ﺦ/g, "خ").replace(/ﺧ/g, "خ").replace(/ﺨ/g, "خ").replace(/ﺩ/g, "د").replace(/ﺪ/g, "د").replace(/ﺫ/g, "ذ").replace(/ﺬ/g, "ذ").replace(/ﺭ/g, "ر").replace(/ﺮ/g, "ر").replace(/ﺯ/g, "ز").replace(/ﺰ/g, "ز").replace(/ﺱ/g, "س").replace(/ﺲ/g, "س").replace(/ﺳ/g, "س").replace(/ﺴ/g, "س").replace(/ﺵ/g, "ش").replace(/ﺶ/g, "ش").replace(/ﺷ/g, "ش").replace(/ﺸ/g, "ش").replace(/ﺹ/g, "ص").replace(/ﺺ/g, "ص").replace(/ﺻ/g, "ص").replace(/ﺼ/g, "ص").replace(/ﺽ/g, "ض").replace(/ﺾ/g, "ض").replace(/ﺿ/g, "ض").replace(/ﻀ/g, "ض").replace(/ﻁ/g, "ط").replace(/ﻂ/g, "ط").replace(/ﻃ/g, "ط").replace(/ﻄ/g, "ط").replace(/ﻅ/g, "ظ").replace(/ﻆ/g, "ظ").replace(/ﻇ/g, "ظ").replace(/ﻈ/g, "ظ").replace(/ﻉ/g, "ع").replace(/ﻊ/g, "ع").replace(/ﻋ/g, "ع").replace(/ﻌ/g, "ع").replace(/ﻍ/g, "غ").replace(/ﻎ/g, "غ").replace(/ﻏ/g, "غ").replace(/ﻐ/g, "غ").replace(/ﻑ/g, "ف").replace(/ﻒ/g, "ف").replace(/ﻓ/g, "ف").replace(/ﻔ/g, "ف").replace(/ﻕ/g, "ق").replace(/ﻖ/g, "ق").replace(/ﻗ/g, "ق").replace(/ﻘ/g, "ق").replace(/ﻙ/g, "ک").replace(/ك/g, "ک").replace(/ﻚ/g, "ک").replace(/ﻛ/g, "ک").replace(/ﻜ/g, "ک").replace(/ﻝ/g, "ل").replace(/ﻞ/g, "ل").replace(/ﻟ/g, "ل").replace(/ﻠ/g, "ل").replace(/ﻡ/g, "م").replace(/ﻢ/g, "م").replace(/ﻣ/g, "م").replace(/ﻤ/g, "م").replace(/ﻥ/g, "ن").replace(/ﻦ/g, "ن").replace(/ﻧ/g, "ن").replace(/ﻨ/g, "ن").replace(/ﻩ/g, "ہ").replace(/ﻪ/g, "ہ").replace(/ﻫ/g, "ھ").replace(/ﻬ/g, "ھ").replace(/ﻭ/g, "و").replace(/ﻮ/g, "و").replace(/ﻯ/g, "ى").replace(/ﻰ/g, "ى").replace(/ﻱ/g, "ی").replace(/ﻲ/g, "ی").replace(/ﻳ/g, "ی").replace(/ﻴ/g, "ی").replace(/ﻩ/g, "ہ").replace(/ﭖ/g, "پ").replace(/ﭗ/g, "پ").replace(/ﭘ/g, "پ").replace(/ﭙ/g, "پ").replace(/ﭦ/g, "ٹ").replace(/ﭧ/g, "ٹ").replace(/ﭨ/g, "ٹ").replace(/ﭩ/g, "ٹ").replace(/ﭺ/g, "چ").replace(/ﭻ/g, "چ").replace(/ﭼ/g, "چ").replace(/ﭽ/g, "چ").replace(/ﮈ/g, "ڈ").replace(/ﮉ/g, "ڈ").replace(/ﮊ/g, "ژ").replace(/ﮋ/g, "ژ").replace(/ﮌ/g, "ڑ").replace(/ﮍ/g, "ڑ").replace(/ﮎ/g, "ک").replace(/ﮏ/g, "ک").replace(/ﮐ/g, "ک").replace(/ﮑ/g, "ک").replace(/ﮒ/g, "گ").replace(/ﮓ/g, "گ").replace(/ﮔ/g, "گ").replace(/ﮕ/g, "گ").replace(/ﮞ/g, "ں").replace(/ﮟ/g, "ں").replace(/ﮤ/g, "ۂ").replace(/ﮥ/g, "ۂ").replace(/ﮦ/g, "ہ").replace(/ﮧ/g, "ہ").replace(/ﮨ/g, "ہ").replace(/ﮩ/g, "ہ").replace(/ﮪ/g, "ھ").replace(/ﮫ/g, "ھ").replace(/ﮬ/g, "ھ").replace(/ﮭ/g, "ھ").replace(/ﮮ/g, "ے").replace(/ﮯ/g, "ے").replace(/ﮰ/g, "ۓ").replace(/ﮱ/g, "ۓ").replace(/ﯠ/g, "و").replace(/ﯡ/g, "و").replace(/ﯼ/g, "ی").replace(/ﯽ/g, "ی").replace(/ﯾ/g, "ی").replace(/ﯿ/g, "ی").replace(/ﺀ/g, "ء").replace(/ﻼ/g, "لا").replace(/ﻻ/g, "لا").replace(/ﷲ/g, "للہ").replace(/ﺃ/g, "أ").replace(/ﺄ/g, "أ").replace(/ﻹ/g, "لإ").replace(/ﻺ/g, "لإ").replace(/ﻸ/g, "لأ").replace(/ﻷ/g, "لأ").replace(/ﺇ/g, "إ").replace(/ﺈ/g, "إ").replace(/ﻶ/g, "لآ").replace(/ﻵ/g, "لآ");
+  }
+  //]]>
+  </script>
+
+</head>
+<body>
+
+  <p>اردو متن پیسٹ کریں:<br /><small>(عربی متن کا بیڑا غرق ہو جائے گا!)</small></p>
+
+  <textarea name="badUrdu" id="badUrdu" rows="10" cols="50" onclick="badUrdu.value = &quot;&quot;">یہاں اردو پیسٹ کریں</textarea>
+  <br /><br />
+  <input type="button" onclick="res.value = fixUrdu(badUrdu.value)" value="کنورٹ کریں" />
+  <br /><br />
+  <textarea name="res" id="res" rows="10" cols="50"></textarea>
+  <br /><br />
+  <a href="http://www.urduweb.org/mehfil/threads/مائیکرو-سافٹ-ورڈ-کی-پریشانیاں.85975/">اردوویب محفل پر ریفرنس</a>
+</body>
+</html>
