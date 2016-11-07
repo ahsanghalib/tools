@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>رومن سے اردو مبدل</title>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+  <script>
+    var clock;
+    var dict = {};
+    function trans() {
+      var prompt = "تبدیلی ہو رہی ہے۔۔۔";
+      var rom = $('#roman').val();
+      var rw = $.unique(rom.match(/\w+/g));
+      $('#urdu').val(prompt + ' ' + rw.length);
+      $.each(rw, function(i, w) {
+        if (!dict[w]) {
+          translitrate(w);
+        }
+      });
+      clock = setInterval(function(){
+        var t = eval('"' + rom.replace(/\r\n/g, "\n").replace(/\n/g, "######").replace(/\"/g, "@@@@@@").replace(/\'/g, "&&&&&&").replace(/(\w+)/g, "\"+dict['$1']+\"") + '"').replace(/######/g, "\n").replace(/@@@@@@/g, '"').replace(/&&&&&&/g, "'");
+        if(c = t.match(/undefined/g)) {
+          $('#urdu').val(prompt + ' ' + c.length);
+        } else {
+          clearInterval(clock);
+          $('#urdu').val(t);
+        }
+      }, 1000);
+    }
+    function translitrate(w) {
+      $.ajax({
+        url: 'https://www.google.com/inputtools/request',
+        dataType: 'jsonp',
+        jsonp: 'cb',
+        data: {text: w,
+               ime: "transliteration_en_ur",
+               num: 5,
+               cp: 0,
+               cs: 1,
+               ie: "utf-8",
+               oe: "utf-8",
+               app: "richlab"},
+        success: function(data) {
+          try {
+            dict[w] = data[1][0][1][0];
+          } catch(err) {
+            dict[w] = w;
+          }
+          if (dict[w] == undefined) {
+            dict[w] = w;
+          }
+        }
+      });
+    }
+  </script>
+  <style>
+  body {
+    background: #ccc;
+    font-family: "Jameel Noori Nastaleeq";
+  }
+  h1 {
+    text-align: center;
+  }
+  #content {
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid #999;
+    border-radius: 15px;
+  }
+  #cbtn {
+    font-family: "Jameel Noori Nastaleeq";
+    margin: 4px auto;
+    display: block;
+  }
+  #roman {
+    font-family: sans-serif;
+    float: left;
+  }
+  #urdu {
+    direction: rtl;
+    font-family: "Jameel Noori Nastaleeq";
+    font-size: 18px;
+    float: right;
+  }
+  textarea {
+    width: 45%;
+    height: 500px;
+    padding: 5px;
+    margin: 4px;
+  }
+  </style>
+</head>
+<body>
+  <h1>رومن سے اردو مبدل</h1>
+  <div id="content">
+    <input type="button" onclick="trans();" value="رومن سے اردو میں تبدیل کریں" id="cbtn" />
+    <textarea id="roman">roman matan yahan naqal karen</textarea>
+    <textarea id="urdu"></textarea>
+    <div style="clear:both;"></div>
+  </div>
+</body>
+</html>
